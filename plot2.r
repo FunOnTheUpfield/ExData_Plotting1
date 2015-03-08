@@ -1,5 +1,5 @@
-#plot1.r
-# Creates the Global_active_power histogram
+#plot2.r
+# Creates the Global_active_power line diagram.
 
 if(!file.exists("data")){
   dir.create("data")
@@ -32,14 +32,11 @@ electricity$datetime <- strptime(paste(electricity$Date, electricity$Time), "%d/
 plotelectricity <- electricity[electricity$datetime <= '2007-02-02' & electricity$datetime >= '2007-02-01', ]
 
 
-# Create plot 1, the Global Active Power histogram
+# Create the plot
 
-png(file = 'plot1.png', width = 480, height = 480, units = "px")
-
-with(plotelectricity, hist(Global_active_power, 
-                           col = "red", 
-                           main = "Gobal Active Power", 
-                           xlab = "Global Active Power (kilowatts)", 
-                           ylab = "Frequency"))
-# TODO: Fix the escape character problem with the brackets
+png('plot2.png', width=480, height=480)
+with(plotelectricity, plot(datetime, Global_active_power, type='l', 
+                           xlab="", ylab="Global Active Power (kilowatts)"))
 dev.off()
+
+
