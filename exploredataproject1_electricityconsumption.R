@@ -3,6 +3,13 @@
 # Written 7-8 March 2015 as a course project for
 # https://class.coursera.org/exdata-012/
 
+
+# Depreciated: USE SCRIPTS plot1.R through plot4.R
+# THIS PARTIALLY COMPLETED SCRIPT WAS ABANDONED.
+
+
+
+
 # Create a data directory if needed
 
 if(!file.exists("data")){
