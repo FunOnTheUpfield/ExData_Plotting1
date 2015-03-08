@@ -53,5 +53,31 @@ with(plotelectricity, hist(Global_active_power,
 dev.off()
 
 
-x11()
-with(plotelectricity, lines(Global_active_power))
+# Plot 2, the Global Active Power line graph with days of week x axis
+png(file = 'plot2.png', width = 480, height = 480, units = "px")
+with(plotelectricity, plot(Global_active_power, type = "l"))
+dev.off()
+
+# TODO: Get rid of dots, add days of week to x axis, label to y axis
+
+
+# Plot 3 Sub Metering
+png(file = 'plot3.png', width = 480, height = 480, units = "px")
+with(plotelectricity, plot(Sub_metering_1, type = "l"))
+with(plotelectricity, plot(Sub_metering_2, type = "l")) 
+with(plotelectricity, plot(Sub_metering_3, type = "l"))
+dev.off()
+
+# TODO: Replace Dots with rectangles, colour submetering 2 blue, colour submetering 3 red, 
+#       add x and y axis information, add legend
+
+# Plot 4 the array of graphs
+png(file = 'plot4.png', width = 480, height = 480, units = "px")
+par(mfrow = c(2,2))
+with(plotelectricity, {
+  plot(Voltage, type = "l")
+  plot(Global_active_power, type = "l")
+  plot(Sub_metering_1, type = "l")
+  plot(Global_reactive_power, type = "l")
+  })
+dev.off()
